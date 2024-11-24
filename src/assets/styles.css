@@ -1,0 +1,286 @@
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: #34495e;
+    text-decoration: none;
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.header {
+    padding: .3em 1em;
+    border: 1px solid #646174;
+    background-color: #a2ccea;
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.nav {
+    display: flex;
+    gap: 1em;
+}
+
+.nav a {
+    padding: 10px 15px;
+    text-align: center;
+    color: #34495e;
+    font-size: .99em;
+    background-color: #a2ccea;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav a:hover {
+    background-color: lightblue;
+}
+
+.footer {
+    padding: .0001em;
+    border: 1px solid #646174;
+    background-color: #a2ccea;
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    left: 0;
+}
+
+/* Flexbox layout for the main content area */
+.container {
+    display: flex;
+    flex-grow: 1;
+    padding: 1em;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+
+.left-box, .right-box {
+    width: 15%; /* Adjust this as per your design */
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 1em;
+    border-radius: 5px;
+    display: flex;
+    
+}
+
+.main-content {
+    flex-grow: 1;
+    margin: 0 1em;
+}
+
+.post {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;  /* Use flexbox to align items */
+    flex-direction: column;  /* Stack elements vertically */
+}
+
+.post-header {
+    display: flex; /* Align profile picture and info horizontally */
+    align-items: flex-start; /* Center vertically */
+    margin-bottom: 10px; /* Space below the header */
+}
+
+.profile-pic {
+    width: 40px; /* Size of the profile picture */
+    height: 40px;
+    border-radius: 50%; /* Circular profile picture */
+    margin-right: 10px; /* Space between image and text */
+}
+
+.post-info {
+    display: flex; /* Align items in a row */
+    flex-direction: column; /* Stack elements vertically */
+    flex-grow: 1; /* Allow info section to take up remaining space */
+    margin-left: 10px; /* Space between profile picture and text */
+}
+
+.post-date {
+    margin: 0; /* Removes default margin */
+    font-size: 0.9em; /* Adjust font size */
+    color: #555; /* Gray for date */
+}
+
+.post-location {
+    margin: 0; 
+    font-size: 0.8em; 
+    color: #007bff;
+}
+
+.post-img {
+    max-width: 100%; 
+    height: auto;
+    border-radius: 5px; 
+}
+.authorName,
+.post-date,
+.post-location {
+    margin: 0; 
+    padding: 0; 
+    line-height: 1.5; 
+}
+
+
+.like-btn {
+    margin-top: 0.5em;
+    padding: 0.5em 1em;
+    background-color: lightblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.like-btn:hover {
+    background-color: #87cefa;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 800px) {
+    .logo {
+        width: 10;
+        height: 10;
+    }
+
+    .left-box, .right-box {
+        display: none;  
+    }
+
+    .main-content {
+        margin: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .nav {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+
+.login-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-top: 30px;
+}
+
+/* Class Selector */
+.login-btn {
+    background-color: #0a74da;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* ID Selector */
+#login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Pseudo-class */
+a:hover {
+    color: red;
+}
+
+/* Descendant Selector */
+.login-box p {
+    color: gray;
+}
+
+/* Child Selector */
+.login-box > h1 {
+    margin-bottom: 20px;
+}
+
+/* Adjacent Sibling Selector */
+label + input {
+    margin-bottom: 10px;
+}
+
+/* General Sibling Selector */
+label ~ .forgot-password {
+    margin-top: 10px;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .login-box {
+        width: 100%;
+    }
+}
+.dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    right: 0;
+}
+
+.dropdown-content a {
+    color: #34495e;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}

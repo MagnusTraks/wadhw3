@@ -1,26 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <header class="header">
+      <ul class="nav">
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/signup">Sign Up</router-link></li> 
+      </ul>
+      <div class="logo">
+        <img src="images/pilt.jpg" alt="My picture" width="50" height="50"/>
+      </div>
+    </header>
+
+    <router-view></router-view> 
+
+    <footer class="footer">
+      <p>&copy; 2024 PostIt</p>
+    </footer>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { useStore } from 'vuex';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  setup() {
+    const store = useStore();
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+    return { store };
+  },
+};
+</script>
