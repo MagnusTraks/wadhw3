@@ -15,17 +15,12 @@
           </div>
           <p>{{ post.postContent }}</p>
           <img v-if="post.imageUrl" :src="post.imageUrl" alt="Post image" class="post-img" />
-          <button @click="likePost(post)">Like ({{ post.likes}})</button>
+          <button class="like-btn" @click="likePost(post)">Like ({{ post.likes}})</button>
         </div>
-        <!-- Move the reset button inside the main-content div -->
         <button @click="resetLikes" class="reset-likes-btn">Reset All Likes</button>
       </div>
       <div class="right-box"></div>
     </div>
-    <!-- Footer remains here -->
-    <footer class="footer">
-      <p>&copy; 2024 PostIt</p>
-    </footer>
   </div>
 </template>
 
@@ -45,7 +40,7 @@ export default {
     });
 
     const likePost = (post) => {
-      store.commit('likePost', post);  // Pass the entire post object
+      store.commit('likePost', post);
     };
 
     const resetLikes = () => {
@@ -60,20 +55,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-/* Add your styles here */
-.reset-likes-btn {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background-color: #f56;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.reset-likes-btn:hover {
-  background-color: #f33;
-}
-</style>

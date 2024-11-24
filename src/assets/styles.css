@@ -75,7 +75,7 @@ a {
     left: 0;
 }
 
-/* Flexbox layout for the main content area */
+
 .container {
     display: flex;
     flex-grow: 1;
@@ -86,9 +86,8 @@ a {
 
 
 .left-box, .right-box {
-    width: 15%; /* Adjust this as per your design */
-    background-color: #f0f0f0; /* Light gray background */
-    padding: 1em;
+    width: 15%;
+    background-color: #f0f0f0;
     border-radius: 5px;
     display: flex;
     
@@ -106,34 +105,34 @@ a {
     margin-bottom: 1em;
     border-radius: 5px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;  /* Use flexbox to align items */
-    flex-direction: column;  /* Stack elements vertically */
+    display: flex;
+    flex-direction: column;
 }
 
 .post-header {
-    display: flex; /* Align profile picture and info horizontally */
-    align-items: flex-start; /* Center vertically */
-    margin-bottom: 10px; /* Space below the header */
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
 }
 
 .profile-pic {
-    width: 40px; /* Size of the profile picture */
+    width: 40px;
     height: 40px;
-    border-radius: 50%; /* Circular profile picture */
-    margin-right: 10px; /* Space between image and text */
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 .post-info {
-    display: flex; /* Align items in a row */
-    flex-direction: column; /* Stack elements vertically */
-    flex-grow: 1; /* Allow info section to take up remaining space */
-    margin-left: 10px; /* Space between profile picture and text */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-left: 10px;
 }
 
 .post-date {
-    margin: 0; /* Removes default margin */
-    font-size: 0.9em; /* Adjust font size */
-    color: #555; /* Gray for date */
+    margin: 0;
+    font-size: 0.9em; 
+    color: #555; 
 }
 
 .post-location {
@@ -169,7 +168,6 @@ a {
     background-color: #87cefa;
 }
 
-/* Responsive layout for smaller screens */
 @media (max-width: 800px) {
     .logo {
         width: 10;
@@ -191,6 +189,19 @@ a {
         align-items: center;
     }
 }
+.reset-likes-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: lightblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .reset-likes-btn:hover {
+    background-color: #87cefa;
+  }
 
 
 .login-box {
@@ -205,7 +216,6 @@ a {
     margin-top: 30px;
 }
 
-/* Class Selector */
 .login-btn {
     background-color: #0a74da;
     color: white;
@@ -215,34 +225,28 @@ a {
     cursor: pointer;
 }
 
-/* ID Selector */
 #login-form {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-/* Pseudo-class */
 a:hover {
     color: red;
 }
 
-/* Descendant Selector */
 .login-box p {
     color: gray;
 }
 
-/* Child Selector */
 .login-box > h1 {
     margin-bottom: 20px;
 }
 
-/* Adjacent Sibling Selector */
 label + input {
     margin-bottom: 10px;
 }
 
-/* General Sibling Selector */
 label ~ .forgot-password {
     margin-top: 10px;
     display: block;
