@@ -13,6 +13,7 @@
         </div>
 
         <p v-if="passwordError" class="error">{{ passwordError }}</p>
+        <p v-if="signupError" class="error">{{ signupError }}</p>
 
         <button type="submit" class="signup-btn">Signup</button>
       </form>
@@ -21,12 +22,15 @@
 </template>
 
 <script>
+import api from '@/services/api';
+
 export default {
   data() {
     return {
       email: '',
       password: '',
-      passwordError: '', // For displaying validation messages
+      passwordError: '',
+      signupError: '',
     };
   },
   methods: {
@@ -53,7 +57,9 @@ export default {
 
       return errors;
     },
-    signup() {
+    async signup() {
+      this.passwordError = '';
+      this.signupError = '';
       const passwordValidationErrors = this.validatePassword(this.password);
 
       if (passwordValidationErrors.length > 0) {
@@ -63,10 +69,24 @@ export default {
         return;
       }
 
-      // If password is valid
-      console.log('Signup successful with', this.email, this.password);
-      this.passwordError = '';
-      this.$router.push('/');
+      try {
+        const response = await api.post('/auth/signup', {
+          email: this.email,
+          password: this.password,
+        });
+
+        if (response.data.token) {
+          this.$store.commit('setToken', response.data.token);
+          this.$store.commit('setUser', response.data.user);
+          this.$router.push('/');
+        } else {
+          this.signupError = 'Signup failed. Please try again.';
+        }
+      } catch (error) {
+        console.error('Signup error:', error);
+        this.signupError =
+          error.response?.data?.message || 'Signup failed. Please try again.';
+      }
     },
   },
 };
