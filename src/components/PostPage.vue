@@ -1,8 +1,10 @@
 <template>
     <div class="container" v-if="post">
+      <div class="left-box"></div>
+      <div class="main-content" id="main-content">
       <div class="post">
         <div class="post-header">
-          <img class="profile-pic" src="../assets/logo.png" alt="Profile Picture" />
+          <img class="profile-pic" src="/images/pilt.jpg" alt="Profile Picture" />
           <div class="post-info">
             <p class="authorName">{{ post.authorName }}</p>
             <p class="post-date">{{ formatDate(post.createTime) }}</p>
@@ -12,10 +14,12 @@
         <p v-if="!isEditing">{{ post.postContent }}</p>
         <textarea v-else v-model="updatedPostContent"></textarea>
         <img v-if="post.imageUrl" :src="post.imageUrl" alt="Post image" class="post-img" />
-        <button v-if="!isEditing" @click="startEditing">Update</button>
-        <button v-if="isEditing" @click="updatePost">Save Changes</button>
-        <button @click="deletePost">Delete</button>
+        <button class="like-btn" v-if="!isEditing" @click="startEditing">Update</button>
+        <button class="like-btn" v-if="isEditing" @click="updatePost">Save Changes</button>
+        <button class="reset-likes-btn" @click="deletePost">Delete</button>
       </div>
+    </div>
+      <div class="right-box"></div>
     </div>
   </template>
   
@@ -40,7 +44,6 @@
           updatedPostContent.value = post.value.postContent;
         } catch (error) {
           console.error('Error fetching post:', error);
-          // Handle error, e.g., redirect to 404 page
         }
       });
   

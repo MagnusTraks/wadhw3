@@ -1,16 +1,10 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/contact">Contact Us</router-link> |
-      <button v-if="isLoggedIn" @click="logout">Logout</button>
-      <router-link v-if="isLoggedIn" to="/add-post">Add Post</router-link>
-      <button v-if="isLoggedIn" @click="deleteAllPosts">Delete All Posts</button>
-    </nav>
     <router-view></router-view>
     <div class="container" v-if="isLoggedIn">
       <div class="left-box"></div>
       <div class="main-content" id="main-content">
+        <button class="like-btn" v-if="isLoggedIn" @click="logout">Logout</button>
         <div v-for="post in posts" :key="post.id" class="post">
           <div class="post-header">
             <img class="profile-pic" src="images/pilt.jpg" alt="Profile Picture" />
@@ -22,10 +16,11 @@
           </div>
           <router-link :to="'/post/' + post.id">
             <p>{{ post.postContent }}</p>
-            <img v-if="post.imageUrl" :src="post.imageUrl" alt="Post image" class="post-img" />
           </router-link>
           <button class="like-btn" @click="likePost(post)">Like ({{ post.likes}})</button>
         </div>
+        <router-link class="add-btn" v-if="isLoggedIn" to="/add-post">Add Post</router-link>
+        <button class="reset-likes-btn" v-if="isLoggedIn" @click="deleteAllPosts">Delete All Posts</button>
       </div>
       <div class="right-box"></div>
     </div>
@@ -35,12 +30,14 @@
 <script>
 import { computed, onMounted } from 'vue';
 import { useStore } from 'vuex';
-import api from '@/services/api'; 
+import { useRouter } from 'vue-router';
+import api from '@/services/api';
 
 export default {
   name: 'MainPage',
   setup() {
     const store = useStore();
+    const router = useRouter();
 
     const posts = computed(() => store.getters.posts);
     const isLoggedIn = computed(() => store.getters.isLoggedIn);
@@ -54,7 +51,7 @@ export default {
     const likePost = async (post) => {
       try {
         await api.put(`/posts/${post.id}/like`);
-        store.dispatch('fetchPosts'); // Refresh posts after liking
+        store.dispatch('fetchPosts');
       } catch (error) {
         console.error('Error liking post:', error);
       }
@@ -62,7 +59,7 @@ export default {
 
     const logout = () => {
       store.dispatch('logout');
-      this.$router.push('/login');
+      router.push('/login');
     };
 
     const deleteAllPosts = async () => {

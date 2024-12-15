@@ -9,6 +9,11 @@ import store from '@/store';
 
 const routes = [
   {
+    path: '/login',
+    name: 'LoginPage',
+    component: LoginPage,
+  },
+  {
     path: '/',
     name: 'Home',
     component: MainPage,
@@ -18,11 +23,6 @@ const routes = [
     path: '/signup',
     name: 'SignUp',
     component: SignUpPage,
-  },
-  {
-    path: '/login',
-    name: 'LoginPage',
-    component: LoginPage,
   },
   {
     path: '/contact',

@@ -15,7 +15,6 @@ app.use(express.json());
 app.use('/auth', authRoutes);
 app.use('/posts', postsRoutes);
 
-// Start the server after initializing the database
 initializeDatabase()
   .then(() => {
     app.listen(PORT, () => {

@@ -78,7 +78,7 @@ export default {
         if (response.data.token) {
           this.$store.commit('setToken', response.data.token);
           this.$store.commit('setUser', response.data.user);
-          this.$router.push('/');
+          this.$router.push('/login');
         } else {
           this.signupError = 'Signup failed. Please try again.';
         }

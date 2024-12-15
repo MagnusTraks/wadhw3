@@ -7,7 +7,7 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST,
     dialect: 'postgres',
-    logging: false, // Turn off SQL query logging
+    logging: false,
   }
 );
 
@@ -66,8 +66,8 @@ const initializeDatabase = async () => {
     await sequelize.authenticate();
     console.log('Connection has been established successfully.');
 
-    await User.sync(); // Create User table if it doesn't exist
-    await Post.sync(); // Create Post table if it doesn't exist
+    await User.sync();
+    await Post.sync(); 
 
     console.log('Tables synchronized.');
   } catch (error) {

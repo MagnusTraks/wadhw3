@@ -198,12 +198,12 @@ a {
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 1rem;
-    border: 1px solid #90caf9; /* Light Blue Border */
+    border: 1px solid #90caf9; 
     border-radius: 5px;
   }
   
   .signup-box .signup-btn {
-    background-color: #42a5f5; /* Blue Button */
+    background-color: #42a5f5;
     color: white;
     padding: 0.5rem 1rem;
     border: none;
@@ -213,7 +213,7 @@ a {
   }
   
   .signup-box .signup-btn:hover {
-    background-color: #1e88e5; /* Darker Blue Hover */
+    background-color: #1e88e5; 
   }
   
   .error {
@@ -223,17 +223,34 @@ a {
   }
 
 
-.left-box, .right-box {
+  .left-box{
     width: 15%;
     background-color: #f0f0f0;
     border-radius: 5px;
+    position: fixed;
+    top: 0;
+    left: 0; 
+    bottom: 0;
     display: flex;
-    
+}
+.right-box{
+    width: 15%;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    position: fixed;
+    top: 0;
+    right: 0; 
+    bottom: 0;
+    display: flex;
 }
 
 .main-content {
     flex-grow: 1;
-    margin: 0 1em;
+    margin: 1em;
+    display: grid;
+    gap: 20px;
+    margin-left: 15%; 
+    margin-right: 15%; 
 }
 
 .post {
@@ -305,6 +322,22 @@ a {
 .like-btn:hover {
     background-color: #87cefa;
 }
+.add-btn {
+    font-size: medium;
+    text-align: center;
+    color: #000;
+    margin-top: 0.5em;
+    padding: 0.5em 1em;
+    background-color: lightblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background-color: #87cefa;
+}
+
 
 
 /* Responsive layout for smaller screens */
@@ -330,17 +363,17 @@ a {
     }
 }
 .reset-likes-btn {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: lightblue;
     color: white;
+    margin-top: 0.5em;
+    padding: 0.5em 1em;
+    background-color: rgb(236, 31, 24);
     border: none;
+    border-radius: 5px;
     cursor: pointer;
   }
   
   .reset-likes-btn:hover {
-    background-color: #87cefa;
+    background-color: #b40d0d;
   }
 
 
@@ -384,7 +417,6 @@ a:hover {
 }
 
 
-/* Adjacent Sibling Selector */
 label + input {
     margin-bottom: 10px;
 }

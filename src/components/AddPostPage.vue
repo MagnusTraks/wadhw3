@@ -1,5 +1,7 @@
 <template>
     <div class="container">
+        <div class="signup-box">
+      <div class="left-box"></div>
       <h2>Add New Post</h2>
       <form @submit.prevent="addPost">
         <div>
@@ -7,10 +9,12 @@
           <textarea id="postContent" v-model="postContent" required></textarea>
         </div>
         <div>
-          <button type="submit">Add Post</button>
+          <button class="like-btn" type="submit">Add Post</button>
         </div>
       </form>
+      <div class="right-box"></div>
     </div>
+  </div>
   </template>
   
   <script>
